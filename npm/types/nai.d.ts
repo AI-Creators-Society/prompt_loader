@@ -5,6 +5,7 @@ export declare type NAIExifTagType = typeof NAIExifTag[number];
 export declare type NAISamplingAlgorithm = "k_euler_ancestral" | "k_euler" | "k_lms" | "plms" | "ddim";
 export declare const NAISoftwareName = "NovelAI";
 export interface NAIPrompt extends Prompt {
+    model: typeof NAISoftwareName;
     positive: string;
     negative: string;
     size: {

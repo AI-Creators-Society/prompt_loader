@@ -50,6 +50,8 @@ export class NAIPromptLoader {
                 }
                 const meta = JSON.parse(comment);
                 const metaInfo = {
+                    model: NAISoftwareName,
+                    source: this.exif.Source,
                     positive: positive ?? "",
                     negative: meta.uc,
                     size: {

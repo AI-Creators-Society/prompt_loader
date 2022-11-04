@@ -1,6 +1,5 @@
 import { extractChunks, decodeChunk, Chunk } from "./deps.js"
 import { Prompt } from "./prompt.js"
-import { exifr } from "./deps.js"
 
 const NAIExifTag = ["Title", "Description", "Software", "Source", "Comment"] as const
 export type NAIExifTagType = typeof NAIExifTag[number]
@@ -8,6 +7,7 @@ export type NAISamplingAlgorithm = "k_euler_ancestral" | "k_euler" | "k_lms" | "
 export const NAISoftwareName = "NovelAI"
 
 export interface NAIPrompt extends Prompt {
+    model: typeof NAISoftwareName
     positive: string
     negative: string
     size: {
@@ -71,6 +71,8 @@ export class NAIPromptLoader {
         const meta: NAIMetaComment = JSON.parse(comment)
 
         const metaInfo: NAIPrompt = {
+            model: NAISoftwareName,
+            source: this.exif.Source,
             positive: positive ?? "",
             negative: meta.uc,
             size: {

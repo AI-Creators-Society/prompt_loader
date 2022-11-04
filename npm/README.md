@@ -39,20 +39,20 @@ Output example
 
 ```json
 {
-    negative: "nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
-    noise: 0.667,
-    positive: "masterpiece, best quality, 1girl",
-    samplingAlgorithm: "k_euler_ancestral",
-    scale: 11,
-    seed: 4017753600,
-    size: { 
-        width: 768,
-         height: 512
+    "negative": "nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
+    "noise": 0.667,
+    "positive": "masterpiece, best quality, 1girl",
+    "samplingAlgorithm": "k_euler_ancestral",
+    "scale": 11,
+    "seed": 4017753600,
+    "size": { 
+        "width": 768,
+         "height": 512
     },
-    height: 512,
-    width: 768,
-    steps: 28,
-    strength: 0.69
+    "height": 512,
+    "width": 768,
+    "steps": 28,
+    "strength": 0.69
 }
 ```
 
@@ -65,6 +65,6 @@ import { loadPrompt } from "https://raw.githubusercontent.com/ai-art-club/prompt
 
 # TODO
 
-[ ] Support Stable Diffusion Web UI type image
-[ ] Prompt converter
+- [ ] Support Stable Diffusion Web UI type image
+- [ ] Prompt converter
 
