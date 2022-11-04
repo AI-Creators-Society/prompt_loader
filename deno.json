@@ -1,8 +1,9 @@
 {
     "tasks": {
-        "test": "deno test --allow-net --allow-env",
-        "test:cov": "deno test -A --coverage=coverage && deno coverage ./coverage --lcov --output=coverage.lcov",
-        "cache": "deno cache ./deps.ts"
+        "test": "deno test -A --unstable",
+        "test:cov": "deno test -A --unstable --coverage=coverage && deno coverage ./coverage --lcov --output=coverage.lcov",
+        "cache": "deno cache ./deps.ts --unstable",
+        "build:npm": "deno run -A --unstable ./build_npm.ts"
     },
     "fmt": {
         "files": {
