@@ -6,15 +6,6 @@ export declare type NAISamplingAlgorithm = "k_euler_ancestral" | "k_euler" | "k_
 export declare const NAISoftwareName = "NovelAI";
 export interface NAIPrompt extends Prompt {
     model: typeof NAISoftwareName;
-    positive: string;
-    negative: string;
-    size: {
-        width: number;
-        height: number;
-    };
-    seed: number;
-    steps: number;
-    scale: number;
     strength: number;
     noise: number;
     samplingAlgorithm: NAISamplingAlgorithm;

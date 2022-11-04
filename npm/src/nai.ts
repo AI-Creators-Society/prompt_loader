@@ -8,15 +8,6 @@ export const NAISoftwareName = "NovelAI"
 
 export interface NAIPrompt extends Prompt {
     model: typeof NAISoftwareName
-    positive: string
-    negative: string
-    size: {
-        width: number
-        height: number
-    }
-    seed: number
-    steps: number
-    scale: number
     strength: number
     noise: number
     samplingAlgorithm: NAISamplingAlgorithm
@@ -51,7 +42,7 @@ export class NAIPromptLoader {
         this.chunks = extractChunks(new Uint8Array(await file.arrayBuffer()))
     }
 
-    getPrompt = () => {
+    getPrompt = (): NAIPrompt => {
         const decoded = this.chunks
             .map((chunk) => decodeChunk(chunk))
             .filter((chunk): chunk is NAIChunk => {

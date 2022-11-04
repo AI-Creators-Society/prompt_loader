@@ -39,6 +39,8 @@ Output example
 
 ```json
 {
+    "model": "NovelAI",
+    "source": "Stable Diffusion 81274D13",
     "negative": "nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry",
     "noise": 0.667,
     "positive": "masterpiece, best quality, 1girl",
@@ -59,7 +61,7 @@ Output example
 ## Deno
 
 ```ts
-import { loadPrompt } from "https://raw.githubusercontent.com/ai-art-club/prompt_loader/0.0.5/mod.ts"
+import { loadPrompt } from "https://raw.githubusercontent.com/ai-art-club/prompt_loader/0.0.6/mod.ts"
 
 ```
 

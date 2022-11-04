@@ -61,7 +61,7 @@ Output example
 ## Deno
 
 ```ts
-import { loadPrompt } from "https://raw.githubusercontent.com/ai-art-club/prompt_loader/0.0.6/mod.ts"
+import { loadPrompt } from "https://raw.githubusercontent.com/ai-art-club/prompt_loader/0.0.7/mod.ts"
 
 ```
 
