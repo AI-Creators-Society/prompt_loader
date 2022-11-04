@@ -65,6 +65,6 @@ import { loadPrompt } from "https://raw.githubusercontent.com/ai-art-club/prompt
 
 # TODO
 
-[ ] Support Stable Diffusion Web UI type image
-[ ] Prompt converter
+- [ ] Support Stable Diffusion Web UI type image
+- [ ] Prompt converter
 
