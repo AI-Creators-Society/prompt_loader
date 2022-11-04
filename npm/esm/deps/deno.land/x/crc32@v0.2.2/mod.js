@@ -10,10 +10,9 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
 var _Crc32Stream_crc32;
-import * as dntShim from "../../../../_dnt.shims.js";
 export function crc32(arr) {
     if (typeof arr === "string") {
-        arr = new dntShim.TextEncoder().encode(arr);
+        arr = new TextEncoder().encode(arr);
     }
     let crc = -1, i, j, l, temp, poly = 0xEDB88320;
     for (i = 0, l = arr.length; i < l; i += 1) {
@@ -54,7 +53,7 @@ export class Crc32Stream {
             enumerable: true,
             configurable: true,
             writable: true,
-            value: new dntShim.TextEncoder()
+            value: new TextEncoder()
         });
         _Crc32Stream_crc32.set(this, "");
         this.reset();

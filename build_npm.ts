@@ -10,15 +10,15 @@ await build({
         // see JS docs for overview and more options
         deno: "dev",
         // undici: true,
-        custom: [
-            {
-                package: {
-                    name: "textencoder-ponyfill",
-                    version: "1.0.2",
-                },
-                globalNames: ["TextEncoder", "TextDecoder"],
-            },
-        ],
+        // custom: [
+        //     {
+        //         package: {
+        //             name: "textencoder-ponyfill",
+        //             version: "1.0.2",
+        //         },
+        //         globalNames: ["TextEncoder", "TextDecoder"],
+        //     },
+        // ],
     },
     test: false,
     typeCheck: false,

@@ -1,7 +1,6 @@
-import * as dntShim from "../../../../_dnt.shims.js";
 export function crc32(arr: Uint8Array | string): string {
   if (typeof arr === "string") {
-    arr = new dntShim.TextEncoder().encode(arr);
+    arr = new TextEncoder().encode(arr);
   }
   let crc = -1, i, j, l, temp, poly = 0xEDB88320;
 
@@ -24,7 +23,7 @@ export class Crc32Stream {
   private bytes: number[] = [];
   private poly = 0xEDB88320;
   private crc = 0 ^ -1;
-  private encoder = new dntShim.TextEncoder();
+  private encoder = new TextEncoder();
   #crc32: string = "";
 
   constructor() {

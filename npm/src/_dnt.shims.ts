@@ -1,9 +1,4 @@
-import { TextEncoder, TextDecoder } from "textencoder-ponyfill";
-export { TextEncoder, TextDecoder } from "textencoder-ponyfill";
-
 const dntGlobals = {
-  TextEncoder,
-  TextDecoder,
 };
 export const dntGlobalThis = createMergeProxy(globalThis, dntGlobals);
 

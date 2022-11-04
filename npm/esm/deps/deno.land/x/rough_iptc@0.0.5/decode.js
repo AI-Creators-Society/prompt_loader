@@ -1,4 +1,3 @@
-import * as dntShim from "../../../../_dnt.shims.js";
 export const decodeChunk = (chunk) => {
     let data;
     if (chunk.data && chunk.name) {
@@ -20,7 +19,7 @@ export const decodeChunk = (chunk) => {
         else {
             if (code) {
                 // text += String.fromCharCode(code)
-                text = new dntShim.TextDecoder("utf-8").decode(data.slice(i));
+                text = new TextDecoder("utf-8").decode(data.slice(i));
                 break;
             }
             else {

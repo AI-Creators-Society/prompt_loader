@@ -1,4 +1,3 @@
-import * as dntShim from "../../../../_dnt.shims.js";
 import { Chunk } from "./extract.js"
 
 export interface DecodedChunk {
@@ -28,7 +27,7 @@ export const decodeChunk = (chunk: Chunk): DecodedChunk => {
         } else {
             if (code) {
                 // text += String.fromCharCode(code)
-                text = new dntShim.TextDecoder("utf-8").decode(data.slice(i))
+                text = new TextDecoder("utf-8").decode(data.slice(i))
                 break
             } else {
                 // throw new Error("Invalid NULL character found. 0x00 character is not permitted in tEXt content")

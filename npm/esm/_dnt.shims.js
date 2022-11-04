@@ -1,9 +1,4 @@
-import { TextEncoder, TextDecoder } from "textencoder-ponyfill";
-export { TextEncoder, TextDecoder } from "textencoder-ponyfill";
-const dntGlobals = {
-    TextEncoder,
-    TextDecoder,
-};
+const dntGlobals = {};
 export const dntGlobalThis = createMergeProxy(globalThis, dntGlobals);
 // deno-lint-ignore ban-types
 function createMergeProxy(baseObj, extObj) {
