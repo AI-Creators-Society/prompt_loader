@@ -21,6 +21,11 @@ await build({
         ],
     },
     test: false,
+    typeCheck: false,
+    scriptModule: false,
+    compilerOptions: {
+        lib: ["es2021", "dom"],
+    },
     package: {
         // package.json properties
         name: "prompt_loader",

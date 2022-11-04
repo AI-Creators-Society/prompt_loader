@@ -1,9 +1,8 @@
 {
   "module": "./esm/mod.js",
-  "main": "./script/mod.js",
   "types": "./types/mod.d.ts",
   "name": "prompt_loader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Prompt Loader from AI Generated Images",
   "license": "MIT",
   "repository": {
@@ -17,10 +16,6 @@
     ".": {
       "import": {
         "default": "./esm/mod.js",
-        "types": "./types/mod.d.ts"
-      },
-      "require": {
-        "default": "./script/mod.js",
         "types": "./types/mod.d.ts"
       }
     }
