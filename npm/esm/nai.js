@@ -41,14 +41,14 @@ export class NAIPromptLoader {
                     return NAIExifTag.some((tag) => tag === chunk.keyword);
                 });
                 const positive = decoded.find((chunk) => chunk.keyword === "Description")?.text;
-                const comment = this.exif.Comment;
+                if (!positive) {
+                    throw new Error("Description chunk not found");
+                }
+                const comment = decoded.find((chunk) => chunk.keyword === "Comment")?.text;
                 if (!comment) {
                     throw new Error("Comment chunk not found");
                 }
                 const meta = JSON.parse(comment);
-                if (!positive) {
-                    throw new Error("Description chunk not found");
-                }
                 const metaInfo = {
                     positive: positive ?? "",
                     negative: meta.uc,

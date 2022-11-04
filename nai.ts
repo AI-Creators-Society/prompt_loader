@@ -1,11 +1,13 @@
 import { extractChunks, decodeChunk, Chunk } from "./deps.ts"
+import { Prompt } from "./prompt.ts"
+import { exifr } from "./deps.ts"
 
 const NAIExifTag = ["Title", "Description", "Software", "Source", "Comment"] as const
 export type NAIExifTagType = typeof NAIExifTag[number]
 export type NAISamplingAlgorithm = "k_euler_ancestral" | "k_euler" | "k_lms" | "plms" | "ddim"
 export const NAISoftwareName = "NovelAI"
 
-export interface NAIPrompt {
+export interface NAIPrompt extends Prompt {
     positive: string
     negative: string
     size: {
@@ -57,17 +59,16 @@ export class NAIPromptLoader {
             })
 
         const positive = decoded.find((chunk) => chunk.keyword === "Description")?.text
+        if (!positive) {
+            throw new Error("Description chunk not found")
+        }
 
-        const comment = this.exif.Comment
+        const comment = decoded.find((chunk) => chunk.keyword === "Comment")?.text
         if (!comment) {
             throw new Error("Comment chunk not found")
         }
 
         const meta: NAIMetaComment = JSON.parse(comment)
-
-        if (!positive) {
-            throw new Error("Description chunk not found")
-        }
 
         const metaInfo: NAIPrompt = {
             positive: positive ?? "",

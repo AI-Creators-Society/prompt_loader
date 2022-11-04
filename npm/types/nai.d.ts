@@ -1,9 +1,10 @@
 import { Chunk } from "./deps.js";
+import { Prompt } from "./prompt.js";
 declare const NAIExifTag: readonly ["Title", "Description", "Software", "Source", "Comment"];
 export declare type NAIExifTagType = typeof NAIExifTag[number];
 export declare type NAISamplingAlgorithm = "k_euler_ancestral" | "k_euler" | "k_lms" | "plms" | "ddim";
 export declare const NAISoftwareName = "NovelAI";
-export interface NAIPrompt {
+export interface NAIPrompt extends Prompt {
     positive: string;
     negative: string;
     size: {

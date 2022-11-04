@@ -1,9 +1,10 @@
 import { exifr } from "./deps.ts"
 import { NAIPromptLoader } from "./nai.ts"
+import { Prompt } from "./prompt.ts"
 
-type SupportedSoftware = "NovelAI"
+type SupportedSoftware = "NovelAI" // TODO: add more
 
-export const loadPrompt = async (file: File) => {
+export const loadPrompt = async (file: File): Promise<Prompt | undefined> => {
     const exif = await exifr.parse(file)
     const swoftware: SupportedSoftware = exif.Software
 
