@@ -8,8 +8,19 @@ await build({
     outDir: "./npm",
     shims: {
         // see JS docs for overview and more options
-        deno: true,
+        deno: "dev",
+        undici: true,
+        custom: [
+            {
+                package: {
+                    name: "textencoder-ponyfill",
+                    version: "1.0.2",
+                },
+                globalNames: ["TextEncoder", "TextDecoder"],
+            },
+        ],
     },
+    test: false,
     package: {
         // package.json properties
         name: "prompt_loader",

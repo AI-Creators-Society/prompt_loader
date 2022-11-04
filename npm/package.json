@@ -1,0 +1,35 @@
+{
+  "module": "./esm/mod.js",
+  "main": "./script/mod.js",
+  "types": "./types/mod.d.ts",
+  "name": "prompt_loader",
+  "description": "Prompt Loader from AI Generated Images",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ai-art-club/prompt_loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ai-art-club/prompt_loader/issues"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./esm/mod.js",
+        "types": "./types/mod.d.ts"
+      },
+      "require": {
+        "default": "./script/mod.js",
+        "types": "./types/mod.d.ts"
+      }
+    }
+  },
+  "dependencies": {
+    "exifr": "7.1.3",
+    "undici": "^5.8.0",
+    "textencoder-ponyfill": "1.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.37"
+  }
+}
