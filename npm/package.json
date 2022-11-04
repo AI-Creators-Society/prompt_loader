@@ -3,6 +3,7 @@
   "main": "./script/mod.js",
   "types": "./types/mod.d.ts",
   "name": "prompt_loader",
+  "version": "0.0.1",
   "description": "Prompt Loader from AI Generated Images",
   "license": "MIT",
   "repository": {
