@@ -1,14 +1,6 @@
-import { fetch, File, FormData, Headers, Request, Response } from "undici";
-export { fetch, File, FormData, Headers, Request, Response } from "undici";
 import { TextEncoder, TextDecoder } from "textencoder-ponyfill";
 export { TextEncoder, TextDecoder } from "textencoder-ponyfill";
 const dntGlobals = {
-    fetch,
-    File,
-    FormData,
-    Headers,
-    Request,
-    Response,
     TextEncoder,
     TextDecoder,
 };

@@ -1,4 +1,3 @@
-import * as dntShim from "./_dnt.shims.js";
 import { extractChunks, decodeChunk, Chunk } from "./deps.js"
 
 const NAIExifTag = ["Title", "Description", "Software", "Source", "Comment"] as const
@@ -37,7 +36,7 @@ export interface NAIChunk extends Chunk {
 }
 
 export class NAIPromptLoader {
-    file!: dntShim.File
+    file!: File
     chunks!: Chunk[]
     exif: any
 
@@ -45,7 +44,7 @@ export class NAIPromptLoader {
         this.exif = exif
     }
 
-    loadFile = async (file: dntShim.File) => {
+    loadFile = async (file: File) => {
         this.file = file
         this.chunks = extractChunks(new Uint8Array(await file.arrayBuffer()))
     }

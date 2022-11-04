@@ -1,10 +1,9 @@
-import * as dntShim from "./_dnt.shims.js";
 import { exifr } from "./deps.js"
 import { NAIPromptLoader } from "./nai.js"
 
 type SupportedSoftware = "NovelAI"
 
-export const loadPrompt = async (file: dntShim.File) => {
+export const loadPrompt = async (file: File) => {
     const exif = await exifr.parse(file)
     const swoftware: SupportedSoftware = exif.Software
 

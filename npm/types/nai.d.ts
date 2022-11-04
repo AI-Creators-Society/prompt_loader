@@ -1,4 +1,3 @@
-import * as dntShim from "./_dnt.shims.js";
 import { Chunk } from "./deps.js";
 declare const NAIExifTag: readonly ["Title", "Description", "Software", "Source", "Comment"];
 export declare type NAIExifTagType = typeof NAIExifTag[number];
@@ -32,11 +31,11 @@ export interface NAIChunk extends Chunk {
     text: string;
 }
 export declare class NAIPromptLoader {
-    file: dntShim.File;
+    file: File;
     chunks: Chunk[];
     exif: any;
     constructor(exif: any);
-    loadFile: (file: dntShim.File) => Promise<void>;
+    loadFile: (file: File) => Promise<void>;
     getPrompt: () => NAIPrompt;
 }
 export {};

@@ -9,7 +9,7 @@ await build({
     shims: {
         // see JS docs for overview and more options
         deno: "dev",
-        undici: true,
+        // undici: true,
         custom: [
             {
                 package: {
