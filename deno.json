@@ -3,7 +3,7 @@
         "test": "deno test -A --unstable",
         "test:cov": "deno test -A --unstable --coverage=coverage && deno coverage ./coverage --lcov --output=coverage.lcov",
         "cache": "deno cache ./deps.ts --unstable",
-        "build:npm": "deno run -A --unstable ./build_npm.ts"
+        "build:npm": "deno run -A ./build_npm.ts"
     },
     "fmt": {
         "files": {
