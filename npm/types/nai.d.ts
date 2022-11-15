@@ -1,5 +1,5 @@
 import { Chunk } from "./deps.js";
-import { Prompt } from "./prompt.js";
+import { Prompt, PromptLoader } from "./prompt.js";
 declare const NAIExifTag: readonly ["Title", "Description", "Software", "Source", "Comment"];
 export declare type NAIExifTagType = typeof NAIExifTag[number];
 export declare type NAISamplingAlgorithm = "k_euler_ancestral" | "k_euler" | "k_lms" | "plms" | "ddim";
@@ -23,12 +23,7 @@ export interface NAIChunk extends Chunk {
     keyword: NAIExifTagType;
     text: string;
 }
-export declare class NAIPromptLoader {
-    file: File;
-    chunks: Chunk[];
-    exif: any;
-    constructor(exif: any);
-    loadFile: (file: File) => Promise<void>;
+export declare class NAIPromptLoader extends PromptLoader {
     getPrompt: () => NAIPrompt;
 }
 export {};

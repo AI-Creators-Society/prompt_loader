@@ -1,6 +1,7 @@
 import { exifr } from "./deps.js"
 import { NAIPromptLoader } from "./nai.js"
 import { Prompt, ModelName } from "./prompt.js"
+import { WebUIPromptLoader } from "./webui.js"
 
 export const loadPrompt = async (file: File): Promise<Prompt | undefined> => {
     const exif = await exifr.parse(file)
@@ -14,7 +15,11 @@ export const loadPrompt = async (file: File): Promise<Prompt | undefined> => {
             return decoded
         }
         default: {
-            throw new Error(`Unsupported software: ${swoftware}`)
+            // WebUI
+            const loader = new WebUIPromptLoader(exif)
+            await loader.loadFile(file)
+            const decoded = loader.getPrompt()
+            return decoded
         }
     }
 }

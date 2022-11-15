@@ -1,7 +1,10 @@
-export type ModelName = "NovelAI" // TODO: add more
+import { Chunk, extractChunks } from "./deps.js"
+
+export type ModelName = "NovelAI" | "Unknown" | string // TODO: add more
 
 export interface Prompt extends Record<string, unknown> {
     model: ModelName
+    // model hash
     source: string
     positive: string
     negative: string
@@ -13,4 +16,19 @@ export interface Prompt extends Record<string, unknown> {
     steps: number
     scale: number
     samplingAlgorithm: string
+}
+
+export class PromptLoader {
+    file!: File
+    chunks!: Chunk[]
+    exif: any
+
+    constructor(exif: any) {
+        this.exif = exif
+    }
+
+    loadFile = async (file: File) => {
+        this.file = file
+        this.chunks = extractChunks(new Uint8Array(await file.arrayBuffer()))
+    }
 }

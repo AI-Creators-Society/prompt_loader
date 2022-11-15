@@ -1,5 +1,5 @@
-import { extractChunks, decodeChunk, Chunk } from "./deps.js"
-import { Prompt } from "./prompt.js"
+import { decodeChunk, Chunk } from "./deps.js"
+import { Prompt, PromptLoader } from "./prompt.js"
 
 const NAIExifTag = ["Title", "Description", "Software", "Source", "Comment"] as const
 export type NAIExifTagType = typeof NAIExifTag[number]
@@ -28,20 +28,7 @@ export interface NAIChunk extends Chunk {
     text: string
 }
 
-export class NAIPromptLoader {
-    file!: File
-    chunks!: Chunk[]
-    exif: any
-
-    constructor(exif: any) {
-        this.exif = exif
-    }
-
-    loadFile = async (file: File) => {
-        this.file = file
-        this.chunks = extractChunks(new Uint8Array(await file.arrayBuffer()))
-    }
-
+export class NAIPromptLoader extends PromptLoader {
     getPrompt = (): NAIPrompt => {
         const decoded = this.chunks
             .map((chunk) => decodeChunk(chunk))

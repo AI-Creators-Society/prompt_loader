@@ -1,35 +1,10 @@
-import { extractChunks, decodeChunk } from "./deps.js";
+import { decodeChunk } from "./deps.js";
+import { PromptLoader } from "./prompt.js";
 const NAIExifTag = ["Title", "Description", "Software", "Source", "Comment"];
 export const NAISoftwareName = "NovelAI";
-export class NAIPromptLoader {
-    constructor(exif) {
-        Object.defineProperty(this, "file", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "chunks", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "exif", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: void 0
-        });
-        Object.defineProperty(this, "loadFile", {
-            enumerable: true,
-            configurable: true,
-            writable: true,
-            value: async (file) => {
-                this.file = file;
-                this.chunks = extractChunks(new Uint8Array(await file.arrayBuffer()));
-            }
-        });
+export class NAIPromptLoader extends PromptLoader {
+    constructor() {
+        super(...arguments);
         Object.defineProperty(this, "getPrompt", {
             enumerable: true,
             configurable: true,
@@ -68,6 +43,5 @@ export class NAIPromptLoader {
                 return metaInfo;
             }
         });
-        this.exif = exif;
     }
 }
