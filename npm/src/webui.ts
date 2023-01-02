@@ -30,9 +30,10 @@ export class WebUIPromptLoader extends PromptLoader {
 
         const lines = parametersText.split("\n")
         const positive = lines[0]
-        const negative = lines[1].split(": ")[1]
+        const hasNegative = lines[1].includes("Negative prompt: ")
+        const negative = hasNegative ? lines[1].split(": ")[1] : ""
         lines
-            .slice(2)
+            .slice(hasNegative ? 2 : 1)
             .map((l) => l.split(", "))
             .flat()
             .forEach((line) => {
